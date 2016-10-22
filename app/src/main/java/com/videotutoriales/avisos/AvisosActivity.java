@@ -8,45 +8,32 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class AvisosActivity extends AppCompatActivity {
+
+    private ListView mListView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_avisos);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_avisos); // Actividad principal, que contiene content_avisos que a su vez tiene avisos_row
+        mListView = (ListView) findViewById(R.id.avisos_list_view);//avisos_list_view esta en content_avisos
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                //context
+                this,
+                // layout (view)
+                R.layout.avisos_row,
+                // row(view) elementos del layout a utilizar, o llamado tambien campo
+                R.id.row_test,
+                new String[]{"Primera sesion","Segunda Sesion","Tercera Sesion","Cuarta Sesion"});
+
+        mListView.setAdapter(arrayAdapter);
+
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_avisos, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
