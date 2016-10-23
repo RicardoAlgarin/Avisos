@@ -2,4 +2,6 @@
     <string name="app_name">Avisos</string>
     <string name="action_settings">Settings</string>
     <string name="hello">Aviso texto</string>
+    <string name="nuevo_aviso">Nuevo Aviso</string>
+    <string name="action_salir">Salir</string>
 </resources>
