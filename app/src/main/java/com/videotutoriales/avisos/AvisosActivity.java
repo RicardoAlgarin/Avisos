@@ -50,7 +50,7 @@ public class AvisosActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.action_nuevo:
-                Log.d(getLocalClassName(), "crear nuevo aviso");
+                Log.d(getLocalClassName(), "crear nuevo Aviso");
                 return true;
 
             case R.id.action_salir:
